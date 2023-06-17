@@ -8,6 +8,44 @@
         $email = $_POST['email'];
         $ghichu = $_POST['ghichu'];
         $result = mysqli_query($con,"INSERT INTO tbl_khachhang (hovaten,phone,email,diachi,ghichu) VALUES ('$hovaten','$sophone',
-        '$diachi','$email','$ghichu')");
+        '$email','$diachi','$ghichu')");
     }
+    
+    //lay du lieu
+    $output = '';
+    $sql_select = mysqli_query($con,"SELECT * FROM tbl_khachhang ORDER BY khachhang_id DESC");
+    $output .= '
+        <div class = "table table-responsive">
+            <table class = "table table-bordered">
+                <tr>
+                    <td>Ho va Ten</td>
+                    <td>phone</td>
+                    <td>Email</td>
+                    <td>Dia chi</td>
+                    <td>Ghi chu</td>
+                </tr>
+    ';
+    if(mysqli_num_rows($sql_select) > 0){
+        while($row = mysqli_fetch_array($sql_select)){
+            $output .= '
+            <tr>
+                <td>'.$row['hovaten'].'</td>
+                <td>'.$row['phone'].'</td>
+                <td>'.$row['email'].'</td>
+                <td>'.$row['diachi'].'</td>
+                <td>'.$row['ghichu'].'</td>
+            </tr>
+        ';
+        }
+    }else{
+        $output .= '
+            <tr>
+                <td colspan="5">Dữ liệu chưa có</td>
+            </tr>
+        ';
+    }
+    $output .= '
+        </table></div>
+    ';
+    echo $output;
 ?>

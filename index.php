@@ -42,11 +42,29 @@
                 <br>
                 <input name="" id="button_insert" class="btn btn-primary" type="button" value="Insert">
             </form>
-            
+            <h3>Load dữ liệu bằng Ajax</h3>
+            <div id="load_data">
+
+            </div>
         </div>
     </div>
     <script>
-        $('#button_insert').click(function (e) { 
+        $(document).ready(function () {
+            function fetch_data(){
+                $.ajax({
+                    url: "ajax_action.php",
+                    method :"POST",
+                    success: function (data) {
+
+                        $('#load_data').html(data);
+                        fetch_data();
+                    }
+                });
+            }
+            fetch_data();
+
+            
+            $('#button_insert').click(function (e) { 
             var hovaten = $('#hovaten').val()
             var sophone = $('#sophone').val()
             var diachi = $('#diachi').val()
@@ -65,6 +83,7 @@
                     }
                 });
             }
+            });
         });
     </script>
 </body>
