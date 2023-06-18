@@ -29,11 +29,11 @@
         while($row = mysqli_fetch_array($sql_select)){
             $output .= '
             <tr>
-                <td>'.$row['hovaten'].'</td>
-                <td>'.$row['phone'].'</td>
-                <td>'.$row['email'].'</td>
-                <td>'.$row['diachi'].'</td>
-                <td>'.$row['ghichu'].'</td>
+                <td contenteditable>'.$row['hovaten'].'</td>
+                <td contenteditable>'.$row['phone'].'</td>
+                <td contenteditable>'.$row['email'].'</td>
+                <td contenteditable>'.$row['diachi'].'</td>
+                <td contenteditable>'.$row['ghichu'].'</td>
             </tr>
         ';
         }
