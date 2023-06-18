@@ -126,4 +126,4 @@ if (mysqli_connect_errno()) {
 <img src="/Screenshot/Screenshot 2023-06-18 1.png" alt="">
 
 ### Update Note
-- [27-05-2023] jdbc mysql with form QLSV
+- [17-06-2023] jdbc mysql with form QLSV
